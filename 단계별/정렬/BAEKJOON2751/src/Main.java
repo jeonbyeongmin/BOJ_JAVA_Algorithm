@@ -2,27 +2,6 @@ import java.io.*;
 
 public class Main {
 
-    /**************************************************
-
-    1. Merge Sort :: 합병정렬.
-
-     # 01 Divide and Conquer :: 분할정복 --> 재귀함수 사용.
-
-     # 02 merge sort 개념과 과정.
-
-     # 03 merge sort의 시간 복잡도
-
-     # 04 merge sort의 java 코드
-
-
-     --> mergeSor는 Binary tree 형태로 Divide 하고 가질수 있는 최대 깊이는 logn이 된다.
-     이때, 각 분할 별로 합병을 진행하므로, 총 시간복잡도는 O(nlogn)이 된다.
-
-     이때 퀵 소트는 최악의 경우 O(n^2)의 시간복잡도를 가지게 되는데,
-     merge sort는 항상 O(nlogn)의 시간복잡도를 가지고 있기 때문에 mergeSort를 사용하도록 하자.
-
-    ****************************************************/
-
     public static int[] src;
     public static int[] temp;
 
