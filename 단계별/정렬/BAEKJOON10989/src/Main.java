@@ -1,7 +1,7 @@
 import java.io.*;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException { // BOJ10989 정답.
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
@@ -21,5 +21,35 @@ public class Main {
 
         bw.close();
     }
-
+//    public static void main(String[] args){ // 카운팅 정렬에 대한 공부
+//
+//        int a[] = new int[10];
+//        int c[] = new int[20];
+//        int b[] = new int[a.length];
+//
+//        for(int i = 0; i < a.length; i++) {
+//            a[i] = (int)(Math.random()*20);
+//        }
+//
+//        for (int i = 0; i < a.length; i++) {
+//           c[a[i]]++;
+//        }
+//        for (int i = 1; i < c.length; i++){
+//           c[i] = c[i] + c[i-1];
+//        }
+//        for (int i = a.length-1; i >= 0; i--){
+//           c[a[i]]--;
+//           b[c[a[i]]] = a[i];
+//        }
+//
+//
+//        //출력.
+//        for (int i = 0; i < a.length; i++){
+//            System.out.print(" | " + a[i]);
+//        }
+//        System.out.println();
+//        for (int i = 0; i < b.length; i++){
+//            System.out.print(" | " + b[i]);
+//        }
+//    }
 }
