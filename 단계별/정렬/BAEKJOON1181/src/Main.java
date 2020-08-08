@@ -1,46 +1,46 @@
-
-import java.util.Arrays;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        int n = input.nextInt();
+        ArrayList arr = new ArrayList<String>();
+        int inputNumber = Integer.parseInt(br.readLine());
 
-        String[] word = new String[n];
+        /*
+        1. 길이 짧은순
+        2. 길이 같으면 알파벳순
+        3. 중복 X
+         */
 
-        for (int i = 0; i < word.length; i++) {
-            word[i] = input.next();
-            word[i] = word[i].toLowerCase();
+        // 리스트에 들어있는지 확인하고 없을 때만 add. --> 3번 해결
+        for (int i = 0; i < inputNumber; i++){
+            String temp = br.readLine();
+            if (arr.contains(temp)){
+                continue;
+            } else{
+                arr.add(temp);
+            }
         }
 
-
-        Arrays.sort(word, new Comparator<String>() {
+        // 비교 정렬 1번 해결.
+        arr.sort(new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
-                if(o1.length() > o2.length()) return 1;
-                else if(o1.length() == o2.length()) return 0;
-                else return -1;
+                if (o1.length() == o2.length()){
+                    return o1.compareTo(o2); //글자수 같으면 알파벳순. 2번 해결.
+                } else if (o1.length() > o2.length()){
+                    return 1;
+                } else{
+                    return -1;
+                }
             }
         });
 
-        for (int i = 0; i < n; i++) {
-            int j;
-            for (j = i+1; j < n; j++) {
-                if(word[i].length() != word[j].length()) break;
-            }
-            Arrays.sort(word, i,j);
-            i = j-1;
+        for (int i = 0; i < arr.size(); i++){
+            System.out.println(arr.get(i));
         }
-
-        System.out.println(word[0]);
-        for (int i = 1; i < n; i++) {
-            if(word[i-1].equals(word[i])) continue;
-
-            System.out.println(word[i]);
-        }
-
     }
 }
