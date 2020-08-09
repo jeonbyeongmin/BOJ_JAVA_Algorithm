@@ -20,7 +20,8 @@ public class Main {
                     return 1;
                 } else if (Integer.parseInt(o1[0]) == Integer.parseInt(o2[0])){
                     return 0;
-                } return -1;
+                }
+                return -1;
             }
         });
         for (int i = 0; i < inputNumber; i++) {
