@@ -1,5 +1,6 @@
-import java.util.ArrayDeque;
-import java.util.Deque;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -8,7 +9,7 @@ public class Main {
         int N = sc.nextInt();
         int M = sc.nextInt();
 
-        Deque<Integer> deq = new ArrayDeque<>();
+        List<Integer> deq = new ArrayList<>();
 
         for (int i = 1; i <= N; i++){
             deq.add(i);
@@ -17,44 +18,17 @@ public class Main {
         int result = 0;
 
         for (int i = 0; i < M; i++){
-
-            Deque<Integer> deqLeft = new ArrayDeque<>();
-            Deque<Integer> deqRight = new ArrayDeque<>();
-
-            for (int number : deq){
-                deqLeft.add(number);
-                deqRight.add(number);
-            }
-
             int number = sc.nextInt();
-            int left = 0;
-            int right = 0;
 
-            while(true){
-                if (deqLeft.getFirst() == number){
-                    deqLeft.remove();
-                    break;
+            while(deq.get(0) != number){
+                if (deq.indexOf(number) > deq.size()/2){
+                    deq.add(0, deq.remove(deq.size()-1));
+                } else{
+                    deq.add(deq.size()-1, deq.remove(0));
                 }
-                deqLeft.addLast(deqLeft.removeFirst());
-                left++;
+                result++;
             }
-
-            while(true){
-                if (deqRight.getFirst() == number){
-                    deqRight.remove();
-                    break;
-                }
-                deqRight.addFirst(deqRight.removeLast());
-                right++;
-            }
-
-            if (left < right){
-                deq = deqLeft;
-                result = result + left;
-            } else{
-                deq = deqRight;
-                result = result + right;
-            }
+            deq.remove(0);
         }
         System.out.println(result);
     }
