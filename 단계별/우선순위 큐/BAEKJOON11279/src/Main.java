@@ -42,16 +42,28 @@ public class Main {
         list.set(1, list.get(list.size()-1));
         list.remove(list.size()-1);
 
-        while(target*2 < list.size()){
+        while(target*2 <= list.size()-1){
+
+            // 왼쪽 자식을 max로 설정
             int max = list.get(target*2);
             int maxIndex = target*2;
-            if (target*2+1 < list.size() && max < list.get(target*2+1)){
+
+            // 왼쪽 자식과 오른쪽 자식을 비교하여
+            // 1. 오른쪽 자식이 존재하고
+            // 2. 오른쪽 자식이 더 크다면
+            // 3. max는 오른쪽 자식이다.
+            if (target*2+1 <= list.size()-1 && max < list.get(target*2+1)){
                 max = list.get(target*2+1);
                 maxIndex = target*2+1;
             }
+
+            // 부모의 원소값이 더 크다면 연산을 하지 않고 break한다
             if (list.get(target) > max){
                 break;
             }
+
+            // 자식의 원소값이 더 크면 그대로 maxIndex에 있는 값과
+            // 부모에 있는 값을 swap 해준다
             swap(maxIndex, target);
             target = maxIndex;
         }
