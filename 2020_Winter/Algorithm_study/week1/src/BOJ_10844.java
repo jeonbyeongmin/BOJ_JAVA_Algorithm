@@ -25,7 +25,7 @@ public class BOJ_10844 {
                 dp[i][j] %= mod;
             }
         }
- 
+
         long sum = 0;
         for (int i = 0; i <= 9; i++){
             sum += dp[n][i];
