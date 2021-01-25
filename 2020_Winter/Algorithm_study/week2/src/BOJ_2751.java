@@ -47,7 +47,6 @@ public class BOJ_2751 {
         while(q <= right){
             temp[tempIndex++] = set[q++];
         }
-
         for (int i = left; i <= right; i++){
             set[i] = temp[i];
         }
