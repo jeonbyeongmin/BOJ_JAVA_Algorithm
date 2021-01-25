@@ -9,7 +9,6 @@ public class BOJ_11052 {
         for (int i = 1; i <= n; i++){
             price[i] = sc.nextInt();
         }
-
         /*
         int[][] dp = new int[n+1][n+1];
 
@@ -23,7 +22,6 @@ public class BOJ_11052 {
             }
         }
         */
-
         int[] dp = new int[n+1];
 
         for (int i = 1; i <= n; i++){
