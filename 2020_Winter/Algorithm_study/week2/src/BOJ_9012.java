@@ -12,7 +12,8 @@ public class BOJ_9012 {
             for (int j = 0; j < str.length(); j++){
                 if (str.charAt(j) == '('){
                     stack.push(str.charAt(j));
-                } else if (str.charAt(j) == ')'){
+                }
+                else if (str.charAt(j) == ')'){
                     if (!stack.isEmpty() && stack.firstElement() == '(') {
                         stack.pop();
                     } else {
