@@ -1,6 +1,4 @@
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Scanner;
+import java.util.*;
 
 public class BOJ_11656 {
     public static void main(String[] args) {
@@ -11,13 +9,7 @@ public class BOJ_11656 {
         for (int i = 0; i < line.length(); i++){
             lines[i] = line.substring(i, line.length());
         }
-
-        Arrays.sort(lines, new Comparator<String>() {
-            @Override
-            public int compare(String o1, String o2) {
-                return o1.compareTo(o2);
-            }
-        });
+        Arrays.sort(lines);
 
         for (String lin : lines){
             System.out.println(lin);
