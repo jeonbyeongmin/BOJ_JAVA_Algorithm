@@ -23,7 +23,7 @@ public class BOJ_2042 {
             int b = Integer.parseInt(st.nextToken());
             long c = Long.parseLong(st.nextToken());
             if (a == 1) {
-                segmentTree.update(0, numbers.length-1, 1, b-1, c-numbers[b-1]);
+                segmentTree.update(0, numbers.length-1, 1, b-1, c);
                 numbers[b-1] = c;
             }
             else {
@@ -53,13 +53,20 @@ public class BOJ_2042 {
             int mid = (start+end)/2;
             return sum(start, mid, node*2, left, right) + sum(mid+1, end, node*2+1, left, right);
         }
-        public void update(int start, int end, int node, int target, long additionalNumber){
-            if (target < start || target > end) return;
-            segmentArr[node] += additionalNumber;
-            if (start == end) return;
+//        public void update(int start, int end, int node, int target, long additionalNumber){
+//            if (target < start || target > end) return;
+//            segmentArr[node] += additionalNumber;
+//            if (start == end) return;
+//            int mid = (start + end) / 2;
+//            update(start, mid, node * 2, target, additionalNumber);
+//            update(mid + 1, end, node * 2 + 1, target, additionalNumber);
+//        }
+        public long update(int start, int end, int node, int target, long c){
+            if (target < start || target > end) return segmentArr[node];
+            if (start == end) return segmentArr[node] = c;
             int mid = (start + end) / 2;
-            update(start, mid, node * 2, target, additionalNumber);
-            update(mid + 1, end, node * 2 + 1, target, additionalNumber);
+            return segmentArr[node] = update(start, mid, node * 2, target, c) + update(mid + 1, end, node * 2 + 1, target, c);
         }
+
     }
 }
