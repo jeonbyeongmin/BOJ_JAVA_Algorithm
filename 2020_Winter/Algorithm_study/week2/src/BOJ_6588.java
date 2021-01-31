@@ -8,7 +8,7 @@ import java.io.*;
                               n = n/2-i + n/2+i
 
        하지만 우리는 홀수이면서 두 값의 차가 가장 큰 소수인 두 수를 구하고 있기 때문에
-        n/2-i, n/2+i 각각이 소수이면서 2i가 가장 큰 값을 구하면 해결되는 문제이이다.
+        n/2-i, n/2+i 각각이 소수이면서 2i가 가장 큰 값을 구하면 해결되는 문제이다.
  */
 public class BOJ_6588 {
     public static void main(String[] args) throws IOException {
