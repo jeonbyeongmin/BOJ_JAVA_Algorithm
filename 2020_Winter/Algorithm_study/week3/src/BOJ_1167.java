@@ -35,7 +35,7 @@ public class BOJ_1167 {
             }
         }
 
-        dfs(graph, distances, visit, 1, 0);
+        dfs(graph, distances, visit, 1);
 
         int max = 0, index = 0;
         for (int i = 1; i <= v; i++){
@@ -47,18 +47,18 @@ public class BOJ_1167 {
 
         distances = new int[v+1];
         visit = new boolean[v+1];
-        dfs(graph, distances, visit, index, 0);
+        dfs(graph, distances, visit, index);
 
         max = 0;
         for (int val : distances) max = Math.max(max, val);
         System.out.println(max);
     }
-    public static void dfs(ArrayList<Vertex>[] graph, int[] distance, boolean[] visit, int current, int prev){
+    public static void dfs(ArrayList<Vertex>[] graph, int[] distance, boolean[] visit, int current){
         visit[current] = true;
         for (Vertex w : graph[current]) {
             if (!visit[w.vertex]){
                 distance[w.vertex] = w.distance + distance[current];
-                dfs(graph, distance, visit, w.vertex, current);
+                dfs(graph, distance, visit, w.vertex);
             }
         }
     }
