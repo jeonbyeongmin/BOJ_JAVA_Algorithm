@@ -18,9 +18,9 @@ public class BOJ_2146 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int n = Integer.parseInt(br.readLine());
-        int[][] map = new int[n][n];                // 지도 배열 , 섬 각각을 인덱싱 해줄것
-        int[][] bridge = new int[n][n];             // 다리 배열 , 섬을 BFS로 확장해가면
-        Queue<Pair> queue = new LinkedList<>();     // 섬인서 공간의 좌표가 들어 가있는 큐
+        int[][] map = new int[n][n];                // 지도 배열 , 섬 각각을 인덱싱 해줄것, BFS로 섬 각각을 인덱싱된 숫자로 확장해간다.
+        int[][] bridge = new int[n][n];             // 다리 배열
+        Queue<Pair> queue = new LinkedList<>();     // 섬인 공간의 좌표가 들어 가있는 큐
 
         for (int i = 0; i < n; i++){
             StringTokenizer st = new StringTokenizer(br.readLine());
@@ -35,7 +35,7 @@ public class BOJ_2146 {
             for(int j = 0; j < map.length; j++) {
                 if(map[i][j] == 1) {
                     color(map, i, j, color);        // map 각각 섬에 마이너스 수로 인덱싱..
-                    color--;
+                    color--;                        // -1, -2, -3, -4 .....
                 }
             }
         }
